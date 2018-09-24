@@ -6,7 +6,8 @@
   "scripts": {
     "r": "node --experimental-modules --no-warnings index.mjs",
     "start": "node --experimental-modules --no-warnings test.mjs",
-    "f": "node --experimental-modules --no-warnings f.mjs"
+    "f": "node --experimental-modules --no-warnings f.mjs",
+    "s": "node --experimental-modules --no-warnings s.mjs"
   },
   "keywords": [],
   "author": "",

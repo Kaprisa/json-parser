@@ -2,7 +2,7 @@ import json from './test.json'
 import R from 'ramda'
 const str = JSON.stringify(json)
 
-class Parser {
+export default class Parser {
   constructor() {
     this.result = {}
     this.path = []
@@ -72,15 +72,15 @@ class Parser {
   }
 }
 
-(async () => {
-  const time = Date.now()
-  const parser = new Parser()
-  await parser.parse(str.substring(0, 53))
-  await parser.parse(str.substring(53))
-  console.log(JSON.stringify(parser.result).length)
-  console.log(str.length)
-  console.log(Date.now() - time)
- })()
+// (async () => {
+//   const time = Date.now()
+//   const parser = new Parser()
+//   await parser.parse(str.substring(0, 53))
+//   await parser.parse(str.substring(53))
+//   console.log(JSON.stringify(parser.result).length)
+//   console.log(str.length)
+//   console.log(Date.now() - time)
+//  })()
 
 
 
