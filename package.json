@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules --no-warnings index.mjs"
+    "r": "node --experimental-modules --no-warnings index.mjs",
+    "start": "node --experimental-modules --no-warnings test.mjs"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
 }
