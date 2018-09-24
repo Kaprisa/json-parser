@@ -28,7 +28,7 @@ class Parser {
     this.str = '';
   }
   shift(count) {
-    this.str = this.str.substring(count ? count + 1 : this.counter + 1)
+    this.str = this.str.substring(count ? count : this.counter + 1)
     this.counter = 0
     // this.str = this.str.substring(this.counter + 1)
     // console.log(this.str)
@@ -44,16 +44,19 @@ class Parser {
     this.addObject()
   }
   addProp() {
+    console.log(this.str)
     const prop = safeExec(this.str, /"([^"]*)":/i)
     this.shift(3 + prop.length)
     this.path.push(prop)
+    console.log(this.path)
   }
   addString() {
     const value = safeExec(this.str, /"([^"]*)"/i)
-    this.shift(2 + value.length)
+    this.shift(3 + value.length)
     this.addValue(value)
   }
   addObject() {
+    this.shift(1)
     while (this.currentSymbol() !== braces['{']) {
       this.addProperty()
       this.path.pop()
@@ -62,7 +65,6 @@ class Parser {
   }
   addProperty() {
     this.addProp()
-    console.log(this.str)
     switch (this.currentSymbol()) {
       case quote:
         this.addString()
